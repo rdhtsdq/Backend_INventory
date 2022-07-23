@@ -27,7 +27,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register',[AuthController::class,'Register']);
 Route::post('/login',[AuthController::class,'Login'])->name('login');
-
+Route::get('/',function() {
+    return response()->json([
+        "message" => "hi,this is my first app"
+    ]);
+});
 
 Route::group(['middleware' => 'auth:sanctum'], function (){
 
